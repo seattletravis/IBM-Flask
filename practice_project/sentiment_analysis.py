@@ -1,6 +1,7 @@
 import requests
 import json
 
+
 def sentiment_analyzer(text_to_analyse):
     url = 'https://sn-watson-sentiment-bert.labs.skills.network/v1/watson.runtime.nlp.v1/NlpService/SentimentPredict'
     myobj = { "raw_document": { "text": text_to_analyse } }
@@ -10,3 +11,6 @@ def sentiment_analyzer(text_to_analyse):
     label = formatted_response['documentSentiment']['label']
     score = formatted_response['documentSentiment']['score']
     return {'label': label, 'score': score}
+
+
+print(sentiment_analyzer('I love this new tech.'))
